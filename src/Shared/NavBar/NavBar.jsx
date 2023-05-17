@@ -2,7 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Spin as Hamburger } from "hamburger-react";
-import { FaFacebook, FaTwitter, FaInstagram, FaGithub } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaGithub,
+  FaUserCircle,
+} from "react-icons/fa";
 
 const NavBar = () => {
   const [isOpen, setOpen] = useState(false);
@@ -74,7 +80,11 @@ const NavBar = () => {
               Blogs
             </Link>
           </motion.li>
-
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar ml-5">
+            <FaUserCircle className="w-10 rounded-full text-4xl mt-1">
+                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            </FaUserCircle>
+          </label>
         </div>
         {/* Small Icon */}
       </div>
@@ -83,19 +93,34 @@ const NavBar = () => {
           isOpen === true ? "left-0" : "-left-96"
         }`}
       >
-        <Link className=" font-semibold text-white hover:bg-slate-500 py-2 mt-10" to="/">
+        <Link
+          className=" font-semibold text-white hover:bg-slate-500 py-2 mt-10"
+          to="/"
+        >
           Home
         </Link>
-        <Link className=" font-semibold text-white hover:bg-slate-500 py-2" to="/allToys">
-        All Toys
+        <Link
+          className=" font-semibold text-white hover:bg-slate-500 py-2"
+          to="/allToys"
+        >
+          All Toys
         </Link>
-        <Link className=" font-semibold text-white hover:bg-slate-500 py-2" to="/myToys">
-        My Toys
+        <Link
+          className=" font-semibold text-white hover:bg-slate-500 py-2"
+          to="/myToys"
+        >
+          My Toys
         </Link>
-        <Link className=" font-semibold text-white hover:bg-slate-500 py-2" to="/addToy">
-        Add A Toy
+        <Link
+          className=" font-semibold text-white hover:bg-slate-500 py-2"
+          to="/addToy"
+        >
+          Add A Toy
         </Link>
-        <Link className=" font-semibold text-white hover:bg-slate-500 py-2" to="/blog">
+        <Link
+          className=" font-semibold text-white hover:bg-slate-500 py-2"
+          to="/blog"
+        >
           Blogs
         </Link>
 
