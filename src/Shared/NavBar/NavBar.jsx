@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Spin as Hamburger } from "hamburger-react";
@@ -9,9 +9,19 @@ import {
   FaGithub,
   FaUserCircle,
 } from "react-icons/fa";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const NavBar = () => {
   const [isOpen, setOpen] = useState(false);
+  const { userInfo, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <>
@@ -29,7 +39,7 @@ const NavBar = () => {
             />
           </Link>
         </div>
-        <div className="md:flex md:w-[70%] justify-center items-center  hidden ">
+        <div className="md:flex md:w-[70%] justify-center items-center md:mr-6 hidden ">
           <motion.li
             className="list-none text-lg font-semibold hover:bg-slate-500 rounded-full px-3 py-1"
             initial={{ y: -10, opacity: 0 }}
@@ -80,12 +90,35 @@ const NavBar = () => {
               Blogs
             </Link>
           </motion.li>
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar ml-5">
-            <FaUserCircle className="w-10 rounded-full text-4xl mt-1">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-            </FaUserCircle>
-          </label>
         </div>
+
+        <div>
+          {userInfo ? (
+            <div className="md:flex items-center md:mr-10  ">
+              <label
+                tabIndex={0}
+                className="btn btn-ghost btn-circle mr-5  avatar tooltip tooltip-bottom tooltip-secondary"
+                data-tip={userInfo.displayName}
+              >
+                <div className="w-10 rounded-full">
+                  <img src={userInfo.photoURL} />
+                </div>
+              </label>
+
+              <button onClick={handleLogOut} className="btn btn-primary hidden md:block">
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <div className="flex">
+              <FaUserCircle className="text-white text-4xl mr-4"></FaUserCircle>
+              <Link to="/login">
+                <button className="btn btn-primary">Login</button>
+              </Link>
+            </div>
+          )}
+        </div>
+
         {/* Small Icon */}
       </div>
       <div
@@ -94,35 +127,54 @@ const NavBar = () => {
         }`}
       >
         <Link
-          className=" font-semibold text-white hover:bg-slate-500 py-2 mt-10"
+          className=" font-semibold text-white hover:bg-slate-500 py-1 mt-5"
           to="/"
         >
           Home
         </Link>
         <Link
-          className=" font-semibold text-white hover:bg-slate-500 py-2"
+          className=" font-semibold text-white hover:bg-slate-500 py-1"
           to="/allToys"
         >
           All Toys
         </Link>
         <Link
-          className=" font-semibold text-white hover:bg-slate-500 py-2"
+          className=" font-semibold text-white hover:bg-slate-500 py-1"
           to="/myToys"
         >
           My Toys
         </Link>
         <Link
-          className=" font-semibold text-white hover:bg-slate-500 py-2"
+          className=" font-semibold text-white hover:bg-slate-500 py-1"
           to="/addToy"
         >
           Add A Toy
         </Link>
         <Link
-          className=" font-semibold text-white hover:bg-slate-500 py-2"
+          className=" font-semibold text-white hover:bg-slate-500 py-1"
           to="/blog"
         >
           Blogs
         </Link>
+
+        <div>
+          {userInfo ? (
+            <div className="flex items-center md:mr-10  ">
+              
+
+              <button onClick={handleLogOut} className="btn btn-primary mx-auto">
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <div className="md:flex hidden">
+              <FaUserCircle className="text-white text-4xl mr-4"></FaUserCircle>
+              <Link to="/login">
+                <button className="btn btn-primary">Login</button>
+              </Link>
+            </div>
+          )}
+        </div>
 
         <div className="flex gap-5 mx-auto">
           <a className="text-3xl text-white" href="">
