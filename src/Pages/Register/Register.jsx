@@ -13,14 +13,14 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="mb-20">
       <img
         className="absolute w-[95%] h-[100%] top-[115px] rounded-2xl"
         src="https://i.ibb.co/GFcTdds/loginImg.jpg"
         alt=""
       />
 
-      <div className="mt-10 md:w-[410px] mx-auto relative z-0 mb-10">
+      <div className="mt-10 md:w-[410px] mx-auto relative z-0 ">
         <form className=" border p-10 shadow-2xl rounded-3xl">
           <h1 className="md:text-5xl text-4xl font-semibold mb-5 ">
             Register Please

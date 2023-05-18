@@ -89,7 +89,7 @@ const NavBar = () => {
         {/* Small Icon */}
       </div>
       <div
-        className={`bg-slate-600 md:hidden w-[80vw] h-[50vh] flex flex-col text-center gap-8 absolute duration-700 ${
+        className={`bg-slate-600 md:hidden w-[80vw] h-[50vh] flex flex-col text-center gap-8 absolute z-10 duration-700 ${
           isOpen === true ? "left-0" : "-left-96"
         }`}
       >
