@@ -1,9 +1,53 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEyeSlash, FaEye, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  const { googleLogin, setUserInfo, SignIn } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
+  // Email Login -------------------------
+  const handleEmailLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    setSuccess("");
+    setError("");
+    console.log(email, password);
+    SignIn(email, password)
+      .then((result) => {
+        const signInUser = result.user;
+        console.log(signInUser);
+        form.reset();
+        setSuccess("Register Success !");
+
+        // navigate(from);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+  // Email Login -------------------------
+
+  // Google Login -------------------------
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        const loggedUser = result.user;
+        setUserInfo(loggedUser);
+        // navigate(from);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+  // Google Login -------------------------
 
   const togglePasswordVisibility = () => {
     setShowPassword((show) => !show);
@@ -18,7 +62,7 @@ const Login = () => {
       />
 
       <div className="mt-10 md:w-[410px] mx-auto relative z-0 border p-10 shadow-2xl rounded-3xl ">
-        <form className=" ">
+        <form onSubmit={handleEmailLogin}>
           <h1 className="md:text-5xl text-4xl font-semibold mb-5 ">
             Login Please
           </h1>
@@ -63,7 +107,9 @@ const Login = () => {
               </a>
             </div>
           </div>
-          <p className="mt-2 text-red-600"></p>
+
+          <p className="mt-2 text-red-600">{error}</p>
+          <p className="mt-2 text-green-600">{success}</p>
           <p className="mt-3 text-slate-500">
             Dont Have An Accout ?{" "}
             <Link className="text-blue-700" to="/register">
@@ -72,12 +118,15 @@ const Login = () => {
           </p>
           <input className="btn w-full mt-5" type="submit" value="Login" />
         </form>
-          <hr className="border-black mt-5" />
+        <hr className="border-black mt-5" />
         <div className="mt-4 flex flex-col justify-center">
           <h1 className="text-lg font-semibold mt-4 text-center">
             ------ Or Login With ------
           </h1>
-          <button className="btn btn-outline btn-primary mt-4">
+          <button
+            onClick={handleGoogleLogin}
+            className="btn btn-outline btn-primary mt-4"
+          >
             <FaGoogle></FaGoogle>
             <span className="ml-5"> Sign In with Google</span>
           </button>
