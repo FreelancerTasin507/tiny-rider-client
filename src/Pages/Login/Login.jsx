@@ -25,7 +25,7 @@ const Login = () => {
         const signInUser = result.user;
         console.log(signInUser);
         form.reset();
-        setSuccess("Register Success !");
+        setSuccess("Login Success !");
 
         // navigate(from);
       })

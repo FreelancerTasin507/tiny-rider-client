@@ -60,26 +60,55 @@ const NavBar = () => {
               All Toys
             </Link>
           </motion.li>
-          <motion.li
-            className="list-none text-lg font-semibold hover:bg-slate-500 rounded-full px-3 py-1"
-            initial={{ y: -10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.6 }}
-          >
-            <Link className=" font-semibold text-white" to="/myToys">
-              My Toys
-            </Link>
-          </motion.li>
-          <motion.li
-            className="list-none text-lg font-semibold hover:bg-slate-500 rounded-full px-3 py-1"
-            initial={{ y: -10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.7 }}
-          >
-            <Link className=" font-semibold text-white" to="/addToy">
-              Add A Toy
-            </Link>
-          </motion.li>
+          {userInfo ? (
+            <>
+              {" "}
+              <motion.li
+                className="list-none text-lg font-semibold hover:bg-slate-500 rounded-full px-3 py-1"
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.6 }}
+              >
+                <Link className=" font-semibold text-white" to="/myToys">
+                  My Toys
+                </Link>
+              </motion.li>
+              <motion.li
+                className="list-none text-lg font-semibold hover:bg-slate-500 rounded-full px-3 py-1"
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.7 }}
+              >
+                <Link className=" font-semibold text-white" to="/addToy">
+                  Add A Toy
+                </Link>
+              </motion.li>
+            </>
+          ) : (
+            <>
+              {" "}
+              <motion.li
+                className="list-none hidden text-lg font-semibold hover:bg-slate-500 rounded-full px-3 py-1"
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.6 }}
+              >
+                <Link className=" font-semibold text-white" to="/myToys">
+                  My Toys
+                </Link>
+              </motion.li>
+              <motion.li
+                className="list-none hidden text-lg font-semibold hover:bg-slate-500 rounded-full px-3 py-1"
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.7 }}
+              >
+                <Link className=" font-semibold text-white" to="/addToy">
+                  Add A Toy
+                </Link>
+              </motion.li>
+            </>
+          )}
           <motion.li
             className="list-none text-lg font-semibold hover:bg-slate-500 rounded-full px-3 py-1"
             initial={{ y: -10, opacity: 0 }}
@@ -105,7 +134,10 @@ const NavBar = () => {
                 </div>
               </label>
 
-              <button onClick={handleLogOut} className="btn btn-primary hidden md:block">
+              <button
+                onClick={handleLogOut}
+                className="btn btn-secondary hidden md:block"
+              >
                 Sign Out
               </button>
             </div>
@@ -113,7 +145,7 @@ const NavBar = () => {
             <div className="flex">
               <FaUserCircle className="text-white text-4xl mr-4"></FaUserCircle>
               <Link to="/login">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-secondary">Login</button>
               </Link>
             </div>
           )}
@@ -122,7 +154,7 @@ const NavBar = () => {
         {/* Small Icon */}
       </div>
       <div
-        className={`bg-slate-600 md:hidden w-[80vw] h-[50vh] flex flex-col text-center gap-8 absolute z-10 duration-700 ${
+        className={`bg-slate-600 md:hidden w-[80vw] h-[50vh] flex flex-col text-center gap-8 absolute z-20 duration-700 ${
           isOpen === true ? "left-0" : "-left-96"
         }`}
       >
@@ -160,9 +192,10 @@ const NavBar = () => {
         <div>
           {userInfo ? (
             <div className="flex items-center md:mr-10  ">
-              
-
-              <button onClick={handleLogOut} className="btn btn-primary mx-auto">
+              <button
+                onClick={handleLogOut}
+                className="btn btn-secondary mx-auto"
+              >
                 Sign Out
               </button>
             </div>
@@ -170,7 +203,7 @@ const NavBar = () => {
             <div className="md:flex hidden">
               <FaUserCircle className="text-white text-4xl mr-4"></FaUserCircle>
               <Link to="/login">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-secondary">Login</button>
               </Link>
             </div>
           )}

@@ -17,10 +17,13 @@
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
+    "react-awesome-slider": "^4.1.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.11.2",
-    "sort-by": "^1.2.0"
+    "react-swipe": "^6.0.4",
+    "sort-by": "^1.2.0",
+    "swipe-js-iso": "^2.1.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
