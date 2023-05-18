@@ -1,6 +1,9 @@
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import { Link } from "react-router-dom";
+import Gellary2 from "../Gellary2/Gellary2";
+
+
 const Home = () => {
   return (
     <div className="md:w-[100%] mx-auto mt-5 mb-10  ">
@@ -34,6 +37,9 @@ const Home = () => {
           </Link>
         </div>
       </div>
+
+        <Gellary2></Gellary2>
+
     </div>
   );
 };

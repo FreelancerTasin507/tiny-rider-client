@@ -14,6 +14,7 @@
     "firebase": "^9.22.0",
     "framer-motion": "^10.12.12",
     "hamburger-react": "^2.5.0",
+    "keen-slider": "^6.8.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
