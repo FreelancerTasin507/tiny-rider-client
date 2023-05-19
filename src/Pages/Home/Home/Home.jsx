@@ -27,7 +27,7 @@ const Home = () => {
           },
         ]}
       ></AwesomeSlider>
-      <div className="absolute md:top-[23%] top-[2%] z-10  md:h-[94%] h-[26%] mt-32 md:mt-0 bg-gradient-to-r from-[#151515] to-[rgb(21, 21, 21, 0)] ">
+      <div className="absolute md:top-[20%] top-[2%] z-10  md:h-[94%] h-[26%] mt-32 md:mt-0 bg-gradient-to-r from-[#151515] to-[rgb(21, 21, 21, 0)] ">
         <div className="flex flex-col gap-y-5 md:mt-28 md:ml-32">
           <h1 className="md:text-8xl text-2xl font-bold text-slate-300">
             Best Kids Store <br /> & Online Shop
