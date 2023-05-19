@@ -1,9 +1,21 @@
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const Gellary2 = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <>
       <h1 className="text-4xl font-bold text-center mt-40">Toys</h1>
       <hr className="border-2 border-black w-1/3 mx-auto mt-4 mb-10" />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        className="grid grid-cols-1 md:grid-cols-3 gap-10"
+      >
         <div className="relative">
           <img
             className="rounded-3xl"
