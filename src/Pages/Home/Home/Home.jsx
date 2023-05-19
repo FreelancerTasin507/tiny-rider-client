@@ -1,6 +1,7 @@
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import { Link } from "react-router-dom";
+import Category from "../Category/Category";
 
 import Gellary2 from "../Gellary2/Gellary2";
 
@@ -39,6 +40,8 @@ const Home = () => {
       </div>
 
       <Gellary2></Gellary2>
+
+      <Category></Category>
     </div>
   );
 };

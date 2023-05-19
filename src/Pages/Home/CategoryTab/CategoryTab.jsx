@@ -3,8 +3,8 @@
 
 // const CategoryTab = ({category}) => {
 
-//     const {sports_cars ,police_cars ,trucks} = category
-//     console.log(sports_cars,police_cars,trucks)
+//     // const {sports_cars ,police_cars ,trucks} = category
+//     // console.log(sports_cars,police_cars,trucks)
 
 //   return (
 //     <div>
@@ -17,13 +17,9 @@
 
 //         <TabPanel>
 //             <>
-//             {
-//                 sports_cars.map(sportCar => <div
-//                 key={sportCar.id}
-//                 >
-//                     <h1>{sportCar.name}</h1>
-//                 </div> )
-//             }
+//            {
+
+//            }
 //             </>
 //         </TabPanel>
 //         <TabPanel>
