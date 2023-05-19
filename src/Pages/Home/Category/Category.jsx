@@ -31,10 +31,10 @@ const Category = () => {
 
         <TabPanel>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
-            <div className="card w-96 h-[80%] bg-base-100 shadow-2xl">
-              <figure className="h-[90%]">
+            <div className="card md:w-96  md:h-[80%] bg-base-100 shadow-2xl">
+              <figure className="md:h-[90%]">
                 <img
-                className="w-[100%] "
+                className="md:w-[100%] "
                   src={categories[0]?.photo}
                   alt="Shoes"
                 />
@@ -48,10 +48,10 @@ const Category = () => {
                 </div>
               </div>
             </div>
-            <div className="card w-96 h-[80%] bg-base-100 shadow-2xl">
-              <figure className="h-[90%]">
+            <div className="card md:w-96 md:h-[80%] bg-base-100 shadow-2xl">
+              <figure className="md:h-[90%]">
                 <img
-                className="w-[100%] "
+                className="md:w-[100%] "
                   src={categories[1]?.photo}
                   alt="Shoes"
                 />
@@ -65,10 +65,10 @@ const Category = () => {
                 </div>
               </div>
             </div>
-            <div className="card w-96 h-[80%] bg-base-100 shadow-2xl">
-              <figure className="h-[90%]">
+            <div className="card md:w-96 md:h-[80%] bg-base-100 shadow-2xl">
+              <figure className="md:h-[90%]">
                 <img
-                className="w-[100%] "
+                className="md:w-[100%] "
                   src={categories[3]?.photo}
                   alt="Shoes"
                 />
@@ -86,10 +86,10 @@ const Category = () => {
         </TabPanel>
         <TabPanel>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
-            <div className="card w-96 h-[80%] bg-base-100 shadow-2xl">
-              <figure className="h-[90%]">
+            <div className="card md:w-96 md:h-[80%] bg-base-100 shadow-2xl">
+              <figure className="md:h-[90%]">
                 <img
-                className="w-[100%] "
+                className="md:w-[100%] "
                   src={categories[2]?.photo}
                   alt="Shoes"
                 />
@@ -103,10 +103,10 @@ const Category = () => {
                 </div>
               </div>
             </div>
-            <div className="card w-96 h-[80%] bg-base-100 shadow-2xl">
-              <figure className="h-[90%]">
+            <div className="card md:w-96 md:h-[80%] bg-base-100 shadow-2xl">
+              <figure className="md:h-[90%]">
                 <img
-                className="w-[100%] "
+                className="md:w-[100%] "
                   src={categories[4]?.photo}
                   alt="Shoes"
                 />
@@ -120,10 +120,10 @@ const Category = () => {
                 </div>
               </div>
             </div>
-            <div className="card w-96 h-[80%] bg-base-100 shadow-2xl">
-              <figure className="h-[90%]">
+            <div className="card md:w-96 md:h-[80%] bg-base-100 shadow-2xl">
+              <figure className="md:h-[90%]">
                 <img
-                className="w-[100%] "
+                className="md:w-[100%] "
                   src={categories[5]?.photo}
                   alt="Shoes"
                 />
@@ -141,10 +141,10 @@ const Category = () => {
         </TabPanel>
         <TabPanel>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
-            <div className="card w-96 h-[80%] bg-base-100 shadow-2xl">
-              <figure className="h-[90%]">
+            <div className="card md:w-96 md:h-[80%] bg-base-100 shadow-2xl">
+              <figure className="md:h-[90%]">
                 <img
-                className="w-[100%] "
+                className="md:w-[100%] "
                   src={categories[6]?.photo}
                   alt="Shoes"
                 />
@@ -158,10 +158,10 @@ const Category = () => {
                 </div>
               </div>
             </div>
-            <div className="card w-96 h-[80%] bg-base-100 shadow-2xl">
-              <figure className="h-[90%]">
+            <div className="card md:w-96 md:h-[80%] bg-base-100 shadow-2xl">
+              <figure className="md:h-[90%]">
                 <img
-                className="w-[100%] "
+                className="md:w-[100%] "
                   src={categories[7]?.photo}
                   alt="Shoes"
                 />
@@ -175,10 +175,10 @@ const Category = () => {
                 </div>
               </div>
             </div>
-            <div className="card w-96 h-[80%] bg-base-100 shadow-2xl">
-              <figure className="h-[90%]">
+            <div className="card md:w-96 md:h-[80%] bg-base-100 shadow-2xl">
+              <figure className="md:h-[90%]">
                 <img
-                className="w-[100%] "
+                className="md:w-[100%] "
                   src={categories[8]?.photo}
                   alt="Shoes"
                 />
@@ -196,11 +196,6 @@ const Category = () => {
         </TabPanel>
       </Tabs>
 
-      {/* <div className="text-center mt-20">
-        {categories.map((category) => (
-          <CategoryTab key={category._id} category={category}></CategoryTab>
-        ))}
-      </div> */}
     </>
   );
 };
