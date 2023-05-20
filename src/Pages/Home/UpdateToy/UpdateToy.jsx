@@ -1,51 +1,59 @@
 import { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
-const AddToy = () => {
+const UpdateToy = () => {
+  const { userInfo } = useContext(AuthContext);
 
-  const {userInfo} = useContext(AuthContext)
-  console.log(userInfo);
+  const toyInfo = useLoaderData();
 
-    const handelAddToy  = e =>{
-        e.preventDefault();
-        const form  = e.target;
-        const photo = form.photo.value;
-        const name = form.name.value;
-        const sellerName = form.sellerName.value;
-        const email = userInfo?.email ;
-        const category =  form.category.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
-        const quantity = form.quantity.value;
-        const description = form.description.value
+  const {_id ,photo,name,sellerName,category,price,rating,quantity,description} = toyInfo;
 
-        const toyData = {photo,name,sellerName,email,category,price,rating,quantity,description};
-        console.log(toyData);
 
-        fetch("http://localhost:5500/allToys",{
-            method:"POST",
-            headers:{
-              'content-type': 'application/json'
+  const handleUpdate = e =>{
+    e.preventDefault();
+    const form  = e.target;
+    const photo = form.photo.value;
+    const name = form.name.value;
+    const sellerName = form.sellerName.value;
+    const email = userInfo?.email ;
+    const category =  form.category.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const quantity = form.quantity.value;
+    const description = form.description.value
+
+    const toyData = {photo,name,sellerName,email,category,price,rating,quantity,description};
+    console.log(toyData);
+
+    fetch(`http://localhost:5500/allToys/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
             },
             body: JSON.stringify(toyData)
         })
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data)
-            if(data.insertedId){
-              alert('Toy Added Successfully')
-              form.reset();
-            }
-        })
-        
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Coffee Updated Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
 
-    }
+  }
 
 
-
-  return (
-    <div className="">
-      <form onSubmit={handelAddToy} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 ">
+    return (
+        <div>
+            <div className="">
+      <form onSubmit={handleUpdate} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 ">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="mb-4">
             <label
@@ -55,6 +63,7 @@ const AddToy = () => {
               Picture URL of the toy
             </label>
             <input
+            defaultValue={photo}
             name="photo"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="pictureUrl"
@@ -70,6 +79,7 @@ const AddToy = () => {
               Name
             </label>
             <input
+            defaultValue={name}
             name="name"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="name"
@@ -85,7 +95,7 @@ const AddToy = () => {
               Seller Name
             </label>
             <input
-          value={userInfo?.displayName}
+            defaultValue={sellerName}
             name="sellerName"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="sellerName"
@@ -117,6 +127,7 @@ const AddToy = () => {
               Sub-category
             </label>
             <select
+            defaultValue={category}
             name="category"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="subcategory"
@@ -202,7 +213,8 @@ const AddToy = () => {
         </div>
       </form>
     </div>
-  );
+        </div>
+    );
 };
 
-export default AddToy;
+export default UpdateToy;
