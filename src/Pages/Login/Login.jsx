@@ -27,7 +27,6 @@ const Login = () => {
         form.reset();
         setSuccess("Login Success !");
 
-        // navigate(from);
       })
       .catch((error) => {
         setError(error.message);
@@ -41,7 +40,6 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         setUserInfo(loggedUser);
-        // navigate(from);
       })
       .catch((error) => {
         console.log(error.message);

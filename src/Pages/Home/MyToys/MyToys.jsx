@@ -10,7 +10,7 @@ const MyToys = () => {
   console.log(toys);
 
   useEffect(() => {
-    fetch(`http://localhost:5500/allToys/getEmail?email=${userInfo?.email}`)
+    fetch(`http://localhost:5500/singleEmail/getEmail?email=${userInfo?.email}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
