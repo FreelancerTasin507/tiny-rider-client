@@ -7,9 +7,11 @@ import { Link } from "react-router-dom";
 const Category = () => {
   const [categories, setCategories] = useState([]);
 
+
   console.log(categories);
 
   useEffect(() => {
+    
     fetch("https://toy-shop-nine.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => {
