@@ -8,21 +8,42 @@ const AllToys = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  useTitle('AllToys')
+  const [search ,setSearch] = useState([]);
 
-  console.log(categories);
+
+  useTitle("AllToys");
+
+  console.log(search);
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-    fetch("http://localhost:5500/allToys")
+    fetch("https://toy-shop-abc.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => {
         //   console.log(data);
         setCategories(data);
       });
   }, []);
+
+
+  useEffect(() => {
+    fetch(`https://toy-shop-abc.vercel.app/allToys?search=${search}`) 
+  
+        .then(res => res.json())
+        .then(data =>setCategories(data));
+}, [search])
+
+
+
+  const handleSearch = e =>{
+    e.preventDefault();
+    const form = e.target;
+    const searchValue = form.searchValue.value
+    setSearch(searchValue)
+  }
+
 
   return (
     <>
@@ -31,6 +52,10 @@ const AllToys = () => {
       ) : (
         <div>
           <div className="container mx-auto p-4">
+            <form onSubmit={handleSearch}>
+              <input className="py-3 shadow-2xl" name="searchValue" type="text" placeholder="Search" />
+              <input className="btn" type="submit" value="Search" />
+            </form>
             <h1 className="text-5xl font-bold mb-4 text-center">All Toys</h1>
             <hr className="border-2 border-black w-1/3 mx-auto mt-4 mb-10" />
 
