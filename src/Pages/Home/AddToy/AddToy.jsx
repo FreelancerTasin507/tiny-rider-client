@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
+import useTitle from "../../../../public/useTitle";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const AddToy = () => {
+  useTitle('AddToy')
 
   const {userInfo} = useContext(AuthContext)
   console.log(userInfo);

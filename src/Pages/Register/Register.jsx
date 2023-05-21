@@ -1,9 +1,12 @@
 import { useContext, useState } from "react";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useTitle from "../../../public/useTitle";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
+
+  useTitle('Register')
 
   const {register , setUserInfo} = useContext(AuthContext);
 

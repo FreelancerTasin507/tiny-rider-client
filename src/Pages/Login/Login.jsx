@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import { FaEyeSlash, FaEye, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import useTitle from "../../../public/useTitle";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  useTitle('Login')
   const { googleLogin, setUserInfo, SignIn } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
 

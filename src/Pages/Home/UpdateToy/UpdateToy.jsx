@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../../../public/useTitle";
 import { AuthContext } from "../../../Providers/AuthProvider";
 // import { ReactNotifications } from 'react-notifications-component'
 // import 'react-notifications-component/dist/theme.css'
 
 const UpdateToy = () => {
+  useTitle('Update')
   const { userInfo } = useContext(AuthContext);
 
   const toyInfo = useLoaderData();

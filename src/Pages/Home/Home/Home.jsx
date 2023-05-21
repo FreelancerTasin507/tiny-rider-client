@@ -1,6 +1,7 @@
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import { Link } from "react-router-dom";
+import useTitle from "../../../../public/useTitle";
 import About from "../About/About";
 import Category from "../Category/Category";
 import Gellary from "../Gellary/Gellary";
@@ -8,6 +9,7 @@ import Gellary from "../Gellary/Gellary";
 import Gellary2 from "../Gellary2/Gellary2";
 
 const Home = () => {
+  useTitle('Home')
   return (
     <div className="md:w-[100%] mx-auto mt-5 mb-10  ">
       <AwesomeSlider
