@@ -19,7 +19,7 @@ const AllToys = () => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-    fetch("https://toy-shop-abc.vercel.app/allToys")
+    fetch("https://toy-shop-nine.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => {
         //   console.log(data);
@@ -29,7 +29,7 @@ const AllToys = () => {
 
 
   useEffect(() => {
-    fetch(`https://toy-shop-abc.vercel.app/allToys?search=${search}`) 
+    fetch(`https://toy-shop-nine.vercel.app/allToys?search=${search}`) 
   
         .then(res => res.json())
         .then(data =>setCategories(data));

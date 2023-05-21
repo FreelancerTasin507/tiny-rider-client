@@ -18,7 +18,7 @@ const MyToys = () => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-    fetch(`https://toy-shop-abc.vercel.app/singleEmail/getEmail?email=${userInfo?.email}`)
+    fetch(`https://toy-shop-nine.vercel.app/singleEmail/getEmail?email=${userInfo?.email}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -35,7 +35,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://toy-shop-abc.vercel.app/allToys/${_id}`, {
+        fetch(`https://toy-shop-nine.vercel.app/allToys/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -51,7 +51,7 @@ const UpdateToy = () => {
     };
     console.log(toyData);
 
-    fetch(`https://toy-shop-abc.vercel.app/allToys/${_id}`, {
+    fetch(`https://toy-shop-nine.vercel.app/allToys/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

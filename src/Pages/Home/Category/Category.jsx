@@ -10,7 +10,7 @@ const Category = () => {
   console.log(categories);
 
   useEffect(() => {
-    fetch("https://toy-shop-abc.vercel.app/allToys")
+    fetch("https://toy-shop-nine.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => {
         //   console.log(data);
